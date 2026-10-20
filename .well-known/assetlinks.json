@@ -1,0 +1,14 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.an23.secretbox",
+      "sha256_cert_fingerprints": [
+        "99:6D:37:91:50:E0:20:1B:EF:FB:65:F2:C1:52:41:BE:AE:FB:7E:30:22:7F:6D:EB:76:01:C0:D4:C3:7F:46:E7",
+        "FA:8E:A9:16:9F:0F:06:B3:FB:53:1D:1A:97:66:EF:E0:9D:1E:C8:62:36:AB:98:71:E5:EF:92:9A:33:25:48:91",
+        "5A:D2:4E:02:FF:10:FA:44:B4:6A:FA:7D:08:9B:23:37:DC:AA:9C:A0:9E:5E:AB:88:F2:67:7A:85:BC:DB:A6:28"
+      ]
+    }
+  }
+]
