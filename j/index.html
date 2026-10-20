@@ -1,55 +1,55 @@
-<!DOCTYPEhtml>
-<htmllang="fr">
+<!DOCTYPE html>
+<html lang="fr">
 <head>
-<metacharset="utf-8">
-<metaname="viewport"content="width=device-width,initial-scale=1">
-<metaname="robots"content="noindex">
-<title>Rejoinsmapartie–SecretBox</title>
-<linkrel="stylesheet"href="../style.css">
-<scriptsrc="../store.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Rejoins ma partie – Secret Box</title>
+<link rel="stylesheet" href="../style.css">
+<script src="../store.js"></script>
 </head>
 <body>
-<divclass="box">
-<h1>🎁Rejoinsmapartie!</h1>
-<p>Tonamit'inviteàjouerà<b>SecretBox–GuessIt</b>.<br><i>Yourfriendinvitesyoutoplay!</i></p>
-<divid="code"></div>
-<divid="actions"></div>
-<pid="help"><small></small></p>
-<p><ahref="../">secretbox-guessit.github.io</a></p>
+<div class="box">
+  <h1>🎁 Rejoins ma partie !</h1>
+  <p>Ton ami t'invite à jouer à <b>Secret Box – Guess It</b>.<br><i>Your friend invites you to play!</i></p>
+  <div id="code"></div>
+  <div id="actions"></div>
+  <p id="help"><small></small></p>
+  <p><a href="../">secretbox-guessit.github.io</a></p>
 </div>
 <script>
-//Lien:https://secretbox-guessit.github.io/j/?c=CODE
-varm=/[?&]c=([A-Za-z0-9]{3,10})/.exec(location.search);
-varcode=m?m[1].toUpperCase():"";
-if(code)document.getElementById("code").innerHTML=
-'<p>Codedelasalle/Roomcode:</p><divclass="code">'+code+'</div>';
+  // Lien : https://secretbox-guessit.github.io/j/?c=CODE
+  var m = /[?&]c=([A-Za-z0-9]{3,10})/.exec(location.search);
+  var code = m ? m[1].toUpperCase() : "";
+  if (code) document.getElementById("code").innerHTML =
+    '<p>Code de la salle / Room code :</p><div class="code">' + code + '</div>';
 
-//GooglePlay:lecodeesttransmisàl'installation(lejeuleretrouvetoutseulau1erlancement)
-varplay=SB.PLAY+(code?"&referrer="+encodeURIComponent("salle="+code):"");
-varactions=document.getElementById("actions");
-varhelp=document.querySelector("#helpsmall");
+  // Google Play : le code est transmis à l'installation (le jeu le retrouve tout seul au 1er lancement)
+  var play = SB.PLAY + (code ? "&referrer=" + encodeURIComponent("salle=" + code) : "");
+  var actions = document.getElementById("actions");
+  var help = document.querySelector("#help small");
 
-if(SB.isAndroid){
-//Jeuinstallé->ils'ouvredanslasalle;sinon->GooglePlay(aveclecode)
-varintent="intent://secretbox-guessit.github.io/j/"+(code?"?c="+code:"")+
-"#Intent;scheme=https;package=com.an23.secretbox;S.browser_fallback_url="+
-encodeURIComponent(play)+";end";
-actions.innerHTML='<aclass="btnbig"href="'+intent+'">▶Ouvrirlejeu/Openthegame</a>';
-help.innerHTML="Pasencoreinstallé?Leboutont'emmènesurGooglePlay.<br><i>Notinstalledyet?ThebuttontakesyoutoGooglePlay.</i>";
-setTimeout(function(){location.href=intent;},400);
-}elseif(SB.isIOS){
-if(SB.APP_STORE){
-actions.innerHTML='<aclass="btnbigapple"href="'+SB.APP_STORE+'">Télécharger/Download</a>';
-help.innerHTML="Ouvrelejeu,touche«Rejoindreunesalle»ettapelecodeci-dessus.<br><i>Openthegame,tap“Joinaroom”andtypethecodeabove.</i>";
-}else{
-actions.innerHTML='<spanclass="soon">AppStore:bientôt/soon</span>';
-help.innerHTML="LaversioniPhonearrivetrèsbientôt!<br><i>TheiPhoneversioniscomingsoon!</i>";
-}
-}else{
-actions.innerHTML='<aclass="btn"href="'+play+'">▶GooglePlay</a>'+
-(SB.APP_STORE?'<aclass="btnapple"href="'+SB.APP_STORE+'">AppStore</a>':'<spanclass="soon">AppStore:bientôt/soon</span>');
-help.innerHTML="Installelejeusurtontéléphone,puistapelecodedans«Rejoindreunesalle».<br><i>Installthegameonyourphone,thentypethecodein“Joinaroom”.</i>";
-}
+  if (SB.isAndroid) {
+    // Jeu installé -> il s'ouvre dans la salle ; sinon -> Google Play (avec le code)
+    var intent = "intent://secretbox-guessit.github.io/j/" + (code ? "?c=" + code : "") +
+      "#Intent;scheme=https;package=com.an23.secretbox;S.browser_fallback_url=" +
+      encodeURIComponent(play) + ";end";
+    actions.innerHTML = '<a class="btn big" href="' + intent + '">▶ Ouvrir le jeu / Open the game</a>';
+    help.innerHTML = "Pas encore installé ? Le bouton t'emmène sur Google Play.<br><i>Not installed yet? The button takes you to Google Play.</i>";
+    setTimeout(function () { location.href = intent; }, 400);
+  } else if (SB.isIOS) {
+    if (SB.APP_STORE) {
+      actions.innerHTML = '<a class="btn big apple" href="' + SB.APP_STORE + '">Télécharger sur l\'App Store / Download</a>';
+      help.innerHTML = "Ouvre le jeu, touche « Rejoindre une salle » et tape le code ci-dessus.<br><i>Open the game, tap “Join a room” and type the code above.</i>";
+    } else {
+      actions.innerHTML = '<span class="soon">App Store : bientôt / soon</span>';
+      help.innerHTML = "La version iPhone arrive très bientôt !<br><i>The iPhone version is coming soon!</i>";
+    }
+  } else {
+    actions.innerHTML = '<a class="btn" href="' + play + '">▶ Google Play</a>' +
+      (SB.APP_STORE ? '<a class="btn apple" href="' + SB.APP_STORE + '">App Store</a>' : '<span class="soon">App Store : bientôt / soon</span>');
+    help.innerHTML = "Installe le jeu sur ton téléphone, puis tape le code dans « Rejoindre une salle ».<br><i>Install the game on your phone, then type the code in “Join a room”.</i>";
+  }
 </script>
 </body>
 </html>

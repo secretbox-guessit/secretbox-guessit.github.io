@@ -1,31 +1,31 @@
-<!DOCTYPEhtml>
-<htmllang="fr">
+<!DOCTYPE html>
+<html lang="fr">
 <head>
-<metacharset="utf-8">
-<metaname="viewport"content="width=device-width,initial-scale=1">
-<title>SecretBox–GuessIt</title>
-<linkrel="stylesheet"href="style.css">
-<scriptsrc="store.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Secret Box – Guess It</title>
+<link rel="stylesheet" href="style.css">
+<script src="store.js"></script>
 </head>
 <body>
-<divclass="box">
-<h1>SecretBox–GuessIt</h1>
-<p>Lejeudedevinettesentreamis,de2à4joueurs!<br>
-<i>Theguessinggameforfriends,2to4players!</i></p>
-<p><small>iPhoneetAndroidjouentensembledanslamêmesalle.<br><i>iPhoneandAndroidplaytogetherinthesameroom.</i></small></p>
-<divid="stores"></div>
-<p><aid="privacy"href="#">Politiquedeconfidentialité/Privacypolicy</a></p>
-<p>Contact:<ahref="mailto:secretbox.guessit@gmail.com">secretbox.guessit@gmail.com</a></p>
-<small>©2026NA23</small>
+<div class="box">
+  <h1>Secret Box – Guess It</h1>
+  <p>Le jeu de devinettes entre amis, de 2 à 4 joueurs !<br>
+  <i>The guessing game for friends, 2 to 4 players!</i></p>
+  <p><small>iPhone et Android jouent ensemble dans la même salle.<br><i>iPhone and Android play together in the same room.</i></small></p>
+  <div id="stores"></div>
+  <p><a id="privacy" href="#">Politique de confidentialité / Privacy policy</a></p>
+  <p>Contact : <a href="mailto:secretbox.guessit@gmail.com">secretbox.guessit@gmail.com</a></p>
+  <small>© 2026 NA23</small>
 </div>
 <script>
-document.getElementById("privacy").href=SB.PRIVACY;
-varplay='<aclass="btn"href="'+SB.PLAY+'">▶GooglePlay</a>';
-varapple=SB.APP_STORE
-?'<aclass="btnapple"href="'+SB.APP_STORE+'">AppStore</a>'
-:'<spanclass="soon">AppStore:bientôt/soon</span>';
-//Suruntéléphone,onmetsonmagasinenpremier
-document.getElementById("stores").innerHTML=SB.isIOS?apple+play:play+apple;
+  document.getElementById("privacy").href = SB.PRIVACY;
+  var play = '<a class="btn" href="' + SB.PLAY + '">▶ Google Play</a>';
+  var apple = SB.APP_STORE
+    ? '<a class="btn apple" href="' + SB.APP_STORE + '">App Store</a>'
+    : '<span class="soon">App Store : bientôt / soon</span>';
+  // Sur un téléphone, on met son magasin en premier
+  document.getElementById("stores").innerHTML = SB.isIOS ? apple + play : play + apple;
 </script>
 </body>
 </html>
