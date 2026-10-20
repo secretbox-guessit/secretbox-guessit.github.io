@@ -1,28 +1,31 @@
-<!DOCTYPE html>
-<html lang="fr">
+<!DOCTYPEhtml>
+<htmllang="fr">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Secret Box – Guess It</title>
-<style>
-  body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#3A2716;color:#FFF3D6;text-align:center}
-  .box{max-width:520px;margin:0 auto;padding:48px 20px}
-  h1{color:#F5C542;margin:0 0 8px}
-  p{line-height:1.5}
-  a.btn{display:inline-block;margin:20px 0;padding:14px 26px;background:#5B8C2E;color:#fff;border-radius:30px;text-decoration:none;font-weight:bold}
-  a{color:#F5C542}
-  small{opacity:.8}
-</style>
+<metacharset="utf-8">
+<metaname="viewport"content="width=device-width,initial-scale=1">
+<title>SecretBox–GuessIt</title>
+<linkrel="stylesheet"href="style.css">
+<scriptsrc="store.js"></script>
 </head>
 <body>
-<div class="box">
-  <h1>Secret Box – Guess It</h1>
-  <p>Le jeu de devinettes entre amis, de 2 à 4 joueurs !<br>
-  <i>The guessing game for friends, 2 to 4 players!</i></p>
-  <a class="btn" href="https://play.google.com/store/apps/details?id=com.an23.secretbox">Google Play</a>
-  <p><a href="https://docs.google.com/document/d/e/2PACX-1vSS7EzqrXEaqs8LofawZSuklmV3M29sUopgBX9zg4I_8NE5HGm6UmSTWSXlfQ3Nuh3YFdJE7po-vgyp/pub">Politique de confidentialité / Privacy policy</a></p>
-  <p>Contact : <a href="mailto:secretbox.guessit@gmail.com">secretbox.guessit@gmail.com</a></p>
-  <small>© 2026 NA23</small>
+<divclass="box">
+<h1>SecretBox–GuessIt</h1>
+<p>Lejeudedevinettesentreamis,de2à4joueurs!<br>
+<i>Theguessinggameforfriends,2to4players!</i></p>
+<p><small>iPhoneetAndroidjouentensembledanslamêmesalle.<br><i>iPhoneandAndroidplaytogetherinthesameroom.</i></small></p>
+<divid="stores"></div>
+<p><aid="privacy"href="#">Politiquedeconfidentialité/Privacypolicy</a></p>
+<p>Contact:<ahref="mailto:secretbox.guessit@gmail.com">secretbox.guessit@gmail.com</a></p>
+<small>©2026NA23</small>
 </div>
+<script>
+document.getElementById("privacy").href=SB.PRIVACY;
+varplay='<aclass="btn"href="'+SB.PLAY+'">▶GooglePlay</a>';
+varapple=SB.APP_STORE
+?'<aclass="btnapple"href="'+SB.APP_STORE+'">AppStore</a>'
+:'<spanclass="soon">AppStore:bientôt/soon</span>';
+//Suruntéléphone,onmetsonmagasinenpremier
+document.getElementById("stores").innerHTML=SB.isIOS?apple+play:play+apple;
+</script>
 </body>
 </html>
