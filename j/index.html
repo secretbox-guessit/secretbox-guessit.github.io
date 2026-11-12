@@ -39,8 +39,15 @@
     setTimeout(function () { location.href = intent; }, 400);
   } else if (SB.isIOS) {
     if (SB.APP_STORE) {
-      actions.innerHTML = '<a class="btn big apple" href="' + SB.APP_STORE + '">Télécharger sur l\'App Store / Download</a>';
-      help.innerHTML = "Ouvre le jeu, touche « Rejoindre une salle » et tape le code ci-dessus.<br><i>Open the game, tap “Join a room” and type the code above.</i>";
+      actions.innerHTML = '<a class="btn big apple" href="' + SB.APP_STORE + '">Télécharger sur l\'App Store / Download</a>' +
+        (code ? '<br><a class="btn" href="#" id="copy">📋 Copier le code / Copy the code</a>' : '');
+      help.innerHTML = "Ouvre le jeu, touche « Rejoindre une salle » puis « Coller » (ou tape le code ci-dessus).<br><i>Open the game, tap “Join a room” then “Paste” (or type the code above).</i>";
+      var cp = document.getElementById("copy");
+      if (cp) cp.onclick = function (e) {
+        e.preventDefault();
+        var done = function () { cp.textContent = "✅ Code copié / Code copied"; };
+        if (navigator.clipboard) navigator.clipboard.writeText(code).then(done, done); else done();
+      };
     } else {
       actions.innerHTML = '<span class="soon">App Store : bientôt / soon</span>';
       help.innerHTML = "La version iPhone arrive très bientôt !<br><i>The iPhone version is coming soon!</i>";
