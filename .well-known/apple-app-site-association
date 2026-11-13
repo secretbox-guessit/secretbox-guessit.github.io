@@ -1,0 +1,16 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appIDs": ["VN3XS8QCP7.com.an23.secretbox"],
+        "appID": "VN3XS8QCP7.com.an23.secretbox",
+        "components": [
+          { "/": "/j", "comment": "invitation" },
+          { "/": "/j/*", "comment": "invitation" }
+        ],
+        "paths": ["/j", "/j/*"]
+      }
+    ]
+  }
+}
